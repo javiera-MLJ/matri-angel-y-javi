@@ -1,0 +1,18 @@
+body {
+  font-family: 'Georgia', serif;
+  background: #f9f3f0;
+  color: #4b2e2e;
+  margin: 2em;
+}
+header h1 {
+  font-size: 2.5em;
+  color: #663366;
+}
+nav a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #663366;
+}
+nav a:hover {
+  text-decoration: underline;
+}
