@@ -36,6 +36,39 @@ header h1 {
   margin-bottom: 0.3em;
 }
 
+.hero {
+  position: relative;
+  height: 100vh;
+  background-image: url('images/foto-portada.jpg'); /* Cambia por tu foto */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-family: 'Playfair Display', serif;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Translúcido */
+  z-index: 1;
+}
+
+.hero h2 {
+  font-size: 3em;
+  z-index: 2;
+  margin-bottom: 0.3em;
+}
+
+.hero p {
+  font-size: 2em;
+  z-index: 2;
+}
+
 main {
   text-align: center;
   padding: 2em 1em;
@@ -77,6 +110,79 @@ nav a {
 nav a:hover {
   color: #c04060;
   text-decoration: underline;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e84393;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #d63031;
+}
+
+.map-container {
+  margin-top: 1em;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animaciones suaves */
+* {
+  transition: all 0.3s ease;
+}
+
+.button:hover,
+nav a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero h2, .hero p {
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 2em 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #a73e6d;
+  font-weight: bold;
+  background-color: #fff0f5;
+  padding: 10px 18px;
+  border-radius: 25px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: #ffe4ec;
+  color: #c04060;
+  transform: scale(1.05);
 }
 
 /* === Responsive Design === */
