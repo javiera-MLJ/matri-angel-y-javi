@@ -1,5 +1,10 @@
 /* Reset básico */
-
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 * {
   margin: 0;
@@ -72,4 +77,51 @@ nav a {
 nav a:hover {
   color: #c04060;
   text-decoration: underline;
+}
+
+/* === Responsive Design === */
+
+/* Para pantallas más pequeñas (móviles) */
+@media (max-width: 600px) {
+  body {
+    padding: 1em;
+  }
+
+  header h1 {
+    font-size: 2.2em;
+  }
+
+  main {
+    padding: 1.5em 1em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 1em;
+  }
+}
+
+/* Para pantallas medianas (tablets o laptops pequeños) */
+@media (min-width: 601px) and (max-width: 900px) {
+  body {
+    padding: 1.5em;
+  }
+
+  header h1 {
+    font-size: 2.6em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
 }
