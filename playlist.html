@@ -19,17 +19,17 @@
       </nav>
   </header>
   <main>
-    <section class="section-center fade-in">
+    <section class="uniform-section fade-in">
       <h2>Nuestra Playlist</h2>
       <p>Queremos que la música de nuestro día también refleje tus gustos. ¡Escucha nuestra playlist y agrega tu canción favorita!</p>
     </section>
 
     <!-- Formulario para sugerir canción -->
-    <section class="suggest-section fade-in">
+    <section class="uniform-section fade-in">
       <h2>Sugiere una Canción</h2>
       <p>¿Tienes una canción especial que nos represente? ¡Agregala!</p>
     
-      <form id="song-form" action="https://formspree.io/f/mwpbwvqz" method="POST">
+      <form id="song-form" action="https://formspree.io/f/mwpbwvqz"  method="POST">
         <label for="nombre">Tu nombre:</label>
         <input type="text" id="nombre" name="nombre" placeholder="Ej: María González" required>
       
@@ -39,21 +39,30 @@
         <label for="artista">Artista:</label>
         <input type="text" id="artista" name="artista" placeholder="Ej: Ed Sheeran" required>
       
+        <!-- Campo oculto para evitar errores en Formspree -->
+        <input type="hidden" name="_subject" value="Nueva sugerencia de canción">
+      
         <button type="submit">Enviar Sugerencia</button>
       </form>
     
       <!-- Mensaje de confirmación -->
-  <div id="success-message" class="success-message"></div>
+  <div id="success-message" class="success-message">
+    <h2>¡Gracias por tu sugerencia!</h2>
+    <p>Pronto revisaremos tu canción 💖</p>
+  </div>
 </section>
 
-    <section class="spotify-playlist fade-in">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/17yr3fDnQ3IdvGcEzcSOYq?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <section class="uniform-section fade-in">
+      <div class="spotify-playlist">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/17yr3fDnQ3IdvGcEzcSOYq?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
     </section>
   </main>
 
     <!-- Mensaje Final -->
   <section class="final-message">
       <h2>Esperamos verte allí</h2>
+      <p>Consultas al boton del whatsapp</p>
       <p>Javiera & Ángel</p>
   </section>
   <script>

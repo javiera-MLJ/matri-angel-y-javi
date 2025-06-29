@@ -7,13 +7,33 @@
   <link rel="stylesheet" href="style/style.css">
   <style>
 /* === FORMULARIO === */
+    /* === FONDO === */
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: url('images/formulario.JPG') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    /* Overlay translúcido opcional (opcional pero bonito) */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(255, 255, 255, 0.7); /* Blanco semi-transparente */
+      z-index: -1;
+    }
+
     .form-container {
       max-width: 600px;
-      margin: 3em auto;
+      margin: 4em auto;
       padding: 2em;
-      background-color: #e9dae6;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco translúcido */
+      backdrop-filter: blur(5px); /* Efecto suave (opcional) */
     }
 
     .form-container h2 {
@@ -64,13 +84,13 @@
       background-color: #d63031;
     }
 
-/* Mensaje de éxito */
-.success-message {
-  display: none;
-  margin-top: 1em;
-  color: green;
-  font-weight: bold;
-}
+    /* Mensaje de éxito */
+    .success-message {
+      display: none;
+      margin-top: 1em;
+      color: green;
+      font-weight: bold;
+    }
 
     label {
       display: block;
@@ -130,10 +150,33 @@
       }
     }
 
+    /* === FONDO Y TRANSLUCIDEZ === */
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: url('../img/fondo-rsvp.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    /* Overlay translúcido */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(255, 255, 255, 0.7); /* Blanco semi-transparente */
+      z-index: -1;
+    }
+
     @media (max-width: 600px) {
       .form-container {
-        margin: 1.5em 1em;
+        margin: 2em 1em;
         padding: 1.5em;
+      }
+
+      body::before {
+        background-color: rgba(255, 255, 255, 0.8); /* Más opaco en móvil */
       }
     }
   </style>
@@ -178,6 +221,7 @@
     <!-- Mensaje Final -->
   <section class="final-message">
       <h2>Esperamos verte allí</h2>
+      <p>Consultas al boton del whatsapp</p>
       <p>Javiera & Ángel</p>
   </section>
   
