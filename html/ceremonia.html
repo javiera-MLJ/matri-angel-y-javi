@@ -1,1 +1,84 @@
-<!DOCTYPE html><html><body><h1>Ceremonia</h1><p>Templo: Av. Pedro de Valdivia 1525. Hora por confirmar.</p></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ceremonia - Javiera & Ángel</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Javiera & Ángel</h1>
+        <nav class="navbar">
+            <a href="../html/index.html">Inicio</a>
+            <a href="../html/ceremonia.html">Ceremonia</a>
+            <a href="../html/recepcion.html">Recepción</a>
+            <a href="../html/rsvp.html">Confirmar asistencia</a>
+            <a href="../html/playlist.html">Canciones</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Información de la ceremonia -->
+        <section class="uniform-section fade-in">
+            <h2>Ceremonia Religiosa</h2>
+            <p>Te invitamos a compartir este momento tan especial en nuestra vida.</p>
+
+            <div class="ceremony-details">
+                <p><strong>Fecha:</strong> Sábado 11 de octubre de 2025</p>
+                <p><strong>Hora de Ingreso:</strong> 8:30 hrs. para poder arreglarnos con tiempo</p>
+                <p><strong>Lugar:</strong> Templo Av. Pedro de Valdivia 1525</p>
+            </div>
+        </section>
+
+        <!-- Imagen del templo -->
+        <section class="uniform-section fade-in" style="background-color: #fffdfb;">
+            <div class="ceremony-image">
+                <img src="../imagenes/templo.jpg" alt="Templo donde será la ceremonia">
+            </div>
+        </section>
+
+        <!-- Estadía (opcional) -->
+        <section class="uniform-section fade-in">
+            <h2>¿Dónde hospedarte?</h2>
+            <p>Si vienes de fuera de la ciudad, te recomendamos estos hoteles cercanos al templo:</p>
+            <ul>
+                <li><strong>Hotel Plaza El Bosque</strong> - A 10 minutos del templo</li>
+                <li><strong>Ibis Santiago Providencia</strong> - Con desayuno incluido</li>
+                <li><strong>Apart Hotel Terrado</strong> - Ideal para familias o grupos pequeños</li>
+            </ul>
+        </section>
+    </main>
+    <!-- Botón de WhatsApp -->
+    <a href="https://wa.me/56944848311"  class="whatsapp-button" target="_blank">
+        <img src="../images/whatsapp-icon.png" alt="WhatsApp">
+    </a>
+
+        <!-- Mensaje Final -->
+    <section class="final-message">
+        <h2>Esperamos verte allí</h2>
+        <p>Javiera & Ángel</p>
+    </section>
+
+    <script>
+        const faders = document.querySelectorAll(".fade-in");
+
+        const appearOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+
+</body>
+</html>

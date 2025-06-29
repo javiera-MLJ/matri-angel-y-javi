@@ -1,11 +1,225 @@
-<!DOCTYPE html><html><body><h1>Confirmación de Asistencia</h1>
-<form action="mailto:javieralorcaj53@gmail.com" method="post" enctype="text/plain">
-  Nombre: <input type="text" name="nombre"><br>
-  ¿Asistirás?: 
-  <select name="asistencia">
-    <option>Sí</option>
-    <option>No</option>
-  </select><br>
-  Comentarios: <br><textarea name="comentarios"></textarea><br>
-  <input type="submit" value="Enviar">
-</form></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confirmación de Asistencia</title>
+  <link rel="stylesheet" href="../style/style.css">
+  <style>
+/* === FORMULARIO === */
+    .form-container {
+      max-width: 600px;
+      margin: 3em auto;
+      padding: 2em;
+      background-color: #e9dae6;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .form-container h2 {
+      color: #663366;
+      margin-bottom: 1em;
+    }
+
+    #rsvp-form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      background-color: #fff0f5;
+      padding: 2em;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    #rsvp-form label {
+      font-weight: bold;
+      color: #4b2e2e;
+      align-self: flex-start;
+    }
+
+    #rsvp-form input,
+    #rsvp-form select,
+    #rsvp-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+
+    #rsvp-form button {
+      background-color: #e84393;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1em;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #rsvp-form button:hover {
+      background-color: #d63031;
+    }
+
+/* Mensaje de éxito */
+.success-message {
+  display: none;
+  margin-top: 1em;
+  color: green;
+  font-weight: bold;
+}
+
+    label {
+      display: block;
+      margin-top: 1em;
+      font-weight: bold;
+      color: #813ea7;
+    }
+
+    input[type="text"], select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #813ea7;
+      border-radius: 6px;
+      font-family: 'Georgia', serif;
+      font-size: 1em;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    input[type="submit"] {
+      margin-top: 1.5em;
+      background-color: #813ea7;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #c4acca;
+    }
+
+    /* Estilo para el mensaje de éxito */
+    .success-message {
+      display: none;
+      text-align: center;
+      color: #2c3e50;
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-top: 2em;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .form-container {
+        margin: 1.5em 1em;
+        padding: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Javiera & Ángel</h1>
+    <nav class="navbar">
+      <a href="../html/index.html">Inicio</a>
+      <a href="../html/ceremonia.html">Ceremonia</a>
+      <a href="../html/recepcion.html">Recepción</a>
+      <a href="../html/rsvp.html">Confirmar asistencia</a>
+      <a href="../html/playlist.html">Canciones</a>
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <h2>Confirmación de Asistencia</h2>
+    <p>Por favor, confirma tu presencia antes del 10 de septiembre.</p>
+    <form id="rsvp-form" action="https://formspree.io/f/mjkrpkpy"  method="POST">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+    
+      <label for="asistencia">¿Asistirás?</label>
+      <select id="asistencia" name="asistencia">
+        <option value="Sí">Sí</option>
+        <option value="No">No</option>
+      </select>
+    
+      <label for="comentarios">Comentarios:</label>
+      <textarea id="comentarios" name="comentarios" placeholder="Escribe aquí tus comentarios..."></textarea>
+    
+      <button type="submit">Enviar Confirmación</button>
+    </form>
+
+    <!-- Mensaje de éxito -->
+    <div id="success-message" class="success-message">
+      ¡Gracias por confirmar tu asistencia!
+    </div>
+  </div>
+
+    <!-- Mensaje Final -->
+  <section class="final-message">
+      <h2>Esperamos verte allí</h2>
+      <p>Javiera & Ángel</p>
+  </section>
+  
+  <!-- Script para animaciones -->
+  <script>
+    const faders = document.querySelectorAll(".fade-in");
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+
+    // Mostrar mensaje de éxito al enviar
+    const form = document.getElementById('rsvp-form');
+    const successMessage = document.getElementById('success-message');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      successMessage.style.display = 'block';
+      successMessage.textContent = '¡Gracias por confirmar tu asistencia!';
+      
+      form.reset();
+
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 5000);
+
+      // Enviar formulario después de mostrar el mensaje (si usas Formspree)
+      form.submit();
+    });
+  </script>
+
+</body>
+</html>

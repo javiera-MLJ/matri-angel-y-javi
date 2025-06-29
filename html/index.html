@@ -4,54 +4,189 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Matrimonio Javiera & Ángel</title>
-  <link rel="stylesheet" href="style/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>  
-    <img src="imagenes/foto-novios.jpg" alt="Javiera & Ángel" style="width: 100%; max-width: 300px; border-radius: 50%; margin-bottom: 1em;">
-    <h1>Javiera & Ángel</h1>
-  </header>
   <!-- Hero Section -->
   <section class="hero">
     <div class="overlay"></div>
-    <h2>¡Nos casamos!</h2>
-    <p>El 4 de octubre</p>
+
+    <!-- Contenido centrado -->
+    <div class="hero-content">
+      <h1>Javiera & Ángel</h1>
+      <h2>¡Nos casamos!</h2>
+
+      <!-- Fecha y Ubicación -->
+      <div class="info">
+        <p class="fecha">11 de octubre</p>
+        <p class="ubicacion">Pob - Mahuzier, Av. Pedro de Valdivia 18, Concepción</p>
+      </div>
+    </div>
   </section>
-  <main>
   <nav class="navbar">
+    <a href="../index.html">Inicio</a>
     <a href="ceremonia.html">Ceremonia</a>
     <a href="recepcion.html">Recepción</a>
     <a href="rsvp.html">Confirmar asistencia</a>
-    <a href="regalos.html">Regalos</a>
-    <a href="galeria.html">Galería</a>
     <a href="playlist.html">Canciones</a>
-    <a href="versiculo.html">Versículo</a>
+
   </nav>
-    <section id="nosotros">
-      <h2>Nuestra Historia</h2>
-      <p>Hace cinco años nos conocimos en un café... y desde entonces todo ha sido amor.</p>
-    </section>
+  <!-- Cuenta Regresiva -->
+  <section class="countdown-section">
+    <h2>¡Falta poco para nuestro gran día!</h2>
+    <div class="countdown" id="countdown">
+      <div><span id="days">00</span><small>Días</small></div>
+      <div><span id="hours">00</span><small>Horas</small></div>
+      <div><span id="minutes">00</span><small>Minutos</small></div>
+      <div><span id="seconds">00</span><small>Segundos</small></div>
+    </div>
+  </section>
+  <main>
 
-    <section id="galeria">
-      <h2>Galería de Fotos</h2>
-      <p>Pronto compartiremos algunas fotos especiales de nuestro compromiso.</p>
-    </section>
-
-    <section id="ubicacion">
-      <h2>Ubicación</h2>
-      <p>Celebraremos nuestra boda en el Jardín de la Paz, Av. Siempre Viva 123.</p>
-    
-      <!-- Mapa incrustado -->
-      <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d36126.74811092246!2d-73.09873616300116!3d-36.83807939112784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9669b7c107f5dad3%3A0x94f44aae3481c7fd!2sLa%20Iglesia%20de%20Jesucristo%20de%20los%20Santos%20de%20los%20%C3%9Altimos%20D%C3%ADas!5e0!3m2!1ses!2scl!4v1750805611678!5m2!1ses!2scl" width="450" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <!-- Nuestra Historia -->
+  <section id="nosotros" class="uniform-section fade-in">
+    <div class="history-wrapper">
+      <!-- Imagen a la izquierda -->
+      <div class="history-image">
+        <img src="../images/nuestra-historia.JPG" alt="Nuestra Historia">
       </div>
+
+      <div class="history-text">
+        <h2>Nuestra Historia</h2>
+        <p>Un día laboral especialmente caluroso, Javiera, quien padece de rosácea, se encontraba con el rostro muy enrojecido debido al calor. En un momento dado, Ángel (el nuevo empleado) pasó por su sección y, al verla, le dijo con tono desenfadado: "¿Siempre eres así o es solo por el calor?"</p>
+        <p>Javiera le respondió que tenía problemas de piel. Sin mucha delicadeza, Ángel pidió entonces una esponja mientras la llamaba "tomate". La burla no cayó bien.</p>
+        <p>Molesta por el comentario hiriente, Javiera tomó la esponja y, sin mediar palabra, se la lanzó directamente a la cara diciendo: "Aquí está tu esponja."</p>
+        <p>Ese fue solo el inicio de una historia de amor llena de momentos inolvidables, risas, y pequeños duelos cotidianos… donde al final, siempre terminamos riéndonos juntos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ubicación -->
+  <section id="ubicacion" class="uniform-section fade-in">
+    <div class="location-wrapper">
+
+      <!-- Texto a la izquierda -->
+      <div class="location-info">
+        <h2>Ubicación</h2>
+        <p>Celebraremos nuestra boda en:</p>
+        <p><strong>Pob - Mahuzier, Av. Pedro de Valdivia 18, Concepción</strong></p>
+        <p>A las 12:30 hrs.</p>
+
+        <!-- Botón para abrir en Google Maps -->
+        <a href="https://maps.app.goo.gl/kURHwJazj7X1PidJA"  
+          target="_blank" 
+          class="map-button">Ver en Google Maps</a>
+      </div>
+
+      <!-- Imagen a la derecha -->
+      <div class="location-image">
+        <img src="../images/mapa-concepcion.jpg" alt="iglesia de jesucristo">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Dress Code -->
+  <section id="dress-code" class="uniform-section fade-in">
+    <h2>Dress Code</h2>
+    <p>Queremos que te sientas cómodo y elegante en nuestra celebración.</p>
+    <p><strong>Tema:</strong> Vestimenta formal – Elegante</p>
+    <p><strong>Paleta de colores sugerida:</strong> Tonos pasteles o neutros. Por favor, evita el morado o lila, ya que estos tonos están reservados específicamente para las damas y caballeros de honor.</p>
+    <p>¡Por favor, evita el vestido blanco; esta noche es solo para mí 😊!</p>
+  </section>
+
+  <!-- Imagen Parallax -->
+  <div class="parallax-image"></div>
+
+    <!-- Playlist -->
+  <section id="playlist" class="uniform-section fade-in">
+    <h2>Playlist</h2>
+    <p>¿Tienes una canción entrenida para bailarla en nuestra gran fiesta? ¡Agrégala a nuestra playlist!</p>
+    <p>Queremos que la música de nuestro día refleje también tus gustos.</p>
+    <a href="playlist.html" class="button">Ver o Agregar Canciones</a>
+  </section>
+
+  <!-- Regalos -->
+  <section id="regalos" class="uniform-section fade-in">
+      <div class="regalo-container">
+          <!-- Contenido del texto -->
+          <div class="regalo-text">
+              <p>¡Tu presencia ya nos hace felices!</p>
+              <p>Pero también queremos ser claros: <strong>un detalle sí es esperado sin excepciones</strong>. Puedes traer tu regalo a la fiesta o realizar una compra desde nuestra lista online.</p>
+              <p><em>PD: Si vienes sin regalo, igual te queremos… pero no te dejaremos olvidarlo tan fácilmente 😉</em></p>
+              <a href="https://milistadenovios.cl/enviar-regalo?id=27767" class="button">Ver Lista de Regalos</a>
+          </div>
+        
+          <!-- Imagen a la derecha -->
+          <div class="regalo-image">
+              <img src="../images/regalo-novios.avif" alt="Imagen de los novios" class="regalo-img">
+          </div>
+      </div>
+  </section>
+
+    <section id="rsvp" class="uniform-section fade-in">
+      <h2>Confirma tu Asistencia</h2>
+      <p>No olvides confirmar tu asistencia antes del 10 de septiembre y hablarme esta semana para confirmar tu estadia.</p>
+      <p><strong>Detalles en la seccion de ceremonia y Recepción.</strong></p>
+      <a class="button" href="#">Reserva Ahora</a>
     </section>
 
-    <section id="rsvp">
-      <h2>Confirma tu Asistencia</h2>
-      <a class="button" href="#">RSVP Ahora</a>
+    <!-- Mensaje Final -->
+    <section class="final-message">
+      <h2>Esperamos verte allí</h2>
+      <p>Javiera & Ángel</p>
     </section>
   </main>
+  <script>
+    const weddingDate = new Date("October 11, 2025 14:00:00").getTime();
+
+    const countdown = document.getElementById("countdown");
+    const daysSpan = document.getElementById("days");
+    const hoursSpan = document.getElementById("hours");
+    const minutesSpan = document.getElementById("minutes");
+    const secondsSpan = document.getElementById("seconds");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      daysSpan.textContent = days.toString().padStart(2, "0");
+      hoursSpan.textContent = hours.toString().padStart(2, "0");
+      minutesSpan.textContent = minutes.toString().padStart(2, "0");
+      secondsSpan.textContent = seconds.toString().padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+
+
+  <script>
+    const faders = document.querySelectorAll(".fade-in");
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
 </body>
 </html>

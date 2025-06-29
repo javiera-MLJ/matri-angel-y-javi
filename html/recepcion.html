@@ -1,1 +1,121 @@
-<!DOCTYPE html><html><body><h1>Recepción</h1><p>Capilla Mahuzier, Av. Pedro de Valdivia 18.</p></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Recepción - Javiera & Ángel</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Javiera & Ángel</h1>
+        <nav class="navbar">
+            <a href="../html/index.html">Inicio</a>
+            <a href="../html/ceremonia.html">Ceremonia</a>
+            <a href="../html/recepcion.html">Recepción</a>
+            <a href="../html/rsvp.html">Confirmar asistencia</a>
+            <a href="../html/playlist.html">Canciones</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección intro -->
+        <!-- Mensaje sobre acceso al templo -->
+        <section class="uniform-section fade-in" style="background-color: #fffdfb;">
+            <h2>Agradecemos profundamente tu interés por ser parte de nuestro día!!</h2>
+            <p>La ceremonia tendrá lugar en el templo, un espacio sagrado que tiene ciertas restricciones de acceso según las normas de la Iglesia.</p>
+            <p>Aunque no puedas acompañarnos en la ceremonia, nos encantará tenerte en la recepción, donde celebraremos juntos nuestro amor con música, comida y mucha alegría.</p>
+            <p><strong>¡Tu presencia siempre será recibida con mucho cariño!</strong></p>
+        </section>
+
+        <!-- Horario de llegada -->
+        <section class="uniform-section fade-in" style="background-color: #fffdfb;">
+            <h2>Horario de Recepción</h2>
+            <p>La recepción comenzará a las <strong>12:30 hrs.</strong></p>
+            <p>Todos tienen que estar a las <strong>13:00 hrs</strong> para que estes en la entrada triunfal de los novios.</p>
+        </section>
+
+        <!-- Opciones de viaje y estadía -->
+        <section class="uniform-section fade-in">
+            <h2>Opciones de Viaje y Estadía</h2>
+            <div class="options-container">
+
+                <!-- Opción 1 -->
+                <div class="option">
+                    <span class="option-number">1</span>
+                    <div class="option-text">
+                        <h3>Viaja el viernes por la noche</h3>
+                        <p>Puedes viajar el viernes en la noche y llegar en la mañana del gran día. Si prefieres, puedes visitar la ciudad o estar en la sala de espera del templo hasta el momento de la recepción. Al finalizar la boda, podrás tomar un bus o avion que salga tarde en la noche con quienes regresen ese mismo día.</p>
+                    </div>
+                </div>
+
+                <!-- Opción 2 -->
+                <div class="option">
+                    <span class="option-number">2</span>
+                    <div class="option-text">
+                        <h3>Ayúdanos a preparar todo</h3>
+                        <p>Si quieres ser parte activa de nuestro día, puedes viajar el viernes y ayudarnos a decorar o preparar detalles. Tu ayuda será invaluable, y por eso te ofrecemos hospedaje gratuito en el hostal esa noche (previa coordinación conmigo). Recuerda confirmar conmigo antes del prox martes 1 de julio para poder reservar en el hostal.</p>
+                        <p><em>Se puede dejar una propina simbólica al hostal si lo deseas.</em></p>
+                    </div>
+                </div>
+
+                <!-- Opción 3 -->
+                <div class="option">
+                    <span class="option-number">3</span>
+                    <div class="option-text">
+                        <h3>Viaja el sábado y quédate esa noche</h3>
+                        <p>También puedes viajar el mismo día de la boda y quedarte después para disfrutar de la noche de fiesta. En este caso, deberás arreglar tú mismo/a tu hospedaje. ¡Hay varias opciones cercanas!</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Detalles de estadía + Imagen -->
+        <section class="uniform-section fade-in" style="background-color: #fffdfb;">
+            <h2>Detalles de la Estadía</h2>
+            <p>El hostal donde ofrecemos hospedaje está ubicado cerca del lugar de la recepción. Cuenta con habitaciones sencillas pero acogedoras, divididas por género (hombres y mujeres).</p>
+            <p>Cada dormitorio tiene alrededor de 6 camas tipo camarote de 1 plaza y media, ideales para compartir con otros invitados.</p>
+            <p>Al llegar, te proporcionarán sábanas, cobertor y almohada. Además, cada habitación dispone de su propio baño. </p>
+            <a href="https://maps.app.goo.gl/FC3xumkMAc9tQr3g8" target="_blank" class="button">Ver Mapa</a>
+            
+            <div class="stay-details">
+                <img src="../imagenes/hostal.jpg" alt="Hostal para los invitados">
+            </div>
+        </section>
+    </main>
+
+    <!-- Botón de WhatsApp -->
+    <a href="https://wa.me/56944848311"  class="whatsapp-button" target="_blank">
+        <img src="../images/whatsapp-icon.png" alt="WhatsApp">
+    </a>
+
+    <!-- Mensaje Final -->
+    <section class="final-message">
+        <h2>Esperamos verte allí</h2>
+        <p>Javiera & Ángel</p>
+    </section>
+
+    <!-- === SCRIPT DE ANIMACIONES === -->
+    <script>
+        const faders = document.querySelectorAll(".fade-in");
+
+        const appearOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+
+</body>
+</html>

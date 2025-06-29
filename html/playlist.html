@@ -1,6 +1,99 @@
-<!DOCTYPE html><html><body><h1>Sugerencias de Canciones</h1>
-<form action="mailto:javieralorcaj53@gmail.com" method="post" enctype="text/plain">
-  Tu nombre: <input type="text" name="nombre"><br>
-  Canción que sugieres: <input type="text" name="cancion"><br>
-  <input type="submit" value="Enviar">
-</form></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playlist - Javiera & Ángel</title>
+  <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+
+  <header>
+      <h1>Javiera & Ángel</h1>
+      <nav class="navbar">
+          <a href="../html/index.html">Inicio</a>
+          <a href="../html/ceremonia.html">Ceremonia</a>
+          <a href="../html/recepcion.html">Recepción</a>
+          <a href="../html/rsvp.html">Confirmar asistencia</a>
+          <a href="../html/playlist.html">Canciones</a>
+      </nav>
+  </header>
+  <main>
+    <section class="section-center fade-in">
+      <h2>Nuestra Playlist</h2>
+      <p>Queremos que la música de nuestro día también refleje tus gustos. ¡Escucha nuestra playlist y agrega tu canción favorita!</p>
+    </section>
+
+    <!-- Formulario para sugerir canción -->
+    <section class="suggest-section fade-in">
+      <h2>Sugiere una Canción</h2>
+      <p>¿Tienes una canción especial que nos represente? ¡Agregala!</p>
+    
+      <form id="song-form" action="https://formspree.io/f/mwpbwvqz" method="POST">
+        <label for="nombre">Tu nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ej: María González" required>
+      
+        <label for="cancion">Nombre de la canción:</label>
+        <input type="text" id="cancion" name="cancion" placeholder="Ej: Perfect" required>
+      
+        <label for="artista">Artista:</label>
+        <input type="text" id="artista" name="artista" placeholder="Ej: Ed Sheeran" required>
+      
+        <button type="submit">Enviar Sugerencia</button>
+      </form>
+    
+      <!-- Mensaje de confirmación -->
+  <div id="success-message" class="success-message"></div>
+</section>
+
+    <section class="spotify-playlist fade-in">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/17yr3fDnQ3IdvGcEzcSOYq?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </section>
+  </main>
+
+    <!-- Mensaje Final -->
+  <section class="final-message">
+      <h2>Esperamos verte allí</h2>
+      <p>Javiera & Ángel</p>
+  </section>
+  <script>
+    const faders = document.querySelectorAll(".fade-in");
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+
+    // Mostrar mensaje de éxito al enviar
+    const form = document.getElementById('song-form');
+    const successMessage = document.getElementById('success-message');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      successMessage.style.display = 'block';
+      successMessage.textContent = '¡Gracias por tu sugerencia! La revisaremos para incluirla.';
+
+      form.reset();
+
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 5000);
+
+      // Enviar formulario después de mostrar el mensaje
+      form.submit();
+    });
+  </script>
+
+</body>
+</html>
