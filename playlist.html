@@ -67,7 +67,7 @@
   </section>
   <script>
     const faders = document.querySelectorAll(".fade-in");
-
+  
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -78,29 +78,42 @@
     }, {
       threshold: 0.2
     });
-
+  
     faders.forEach(fader => {
       appearOnScroll.observe(fader);
     });
-
+  
     // Mostrar mensaje de éxito al enviar
     const form = document.getElementById('song-form');
     const successMessage = document.getElementById('success-message');
-
+  
     form.addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      successMessage.style.display = 'block';
-      successMessage.textContent = '¡Gracias por tu sugerencia! La revisaremos para incluirla.';
-
-      form.reset();
-
-      setTimeout(() => {
-        successMessage.style.display = 'none';
-      }, 5000);
-
-      // Enviar formulario después de mostrar el mensaje
-      form.submit();
+      event.preventDefault(); // Detenemos el envío normal
+    
+      const formData = new FormData(form);
+    
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          // Muestra el mensaje de éxito
+          successMessage.style.display = 'block';
+          form.reset();
+        
+          setTimeout(() => {
+            successMessage.style.display = 'none';
+          }, 5000);
+        } else {
+          alert("Hubo un error al enviar el formulario. Inténtalo de nuevo.");
+        }
+      }).catch(error => {
+        console.error('Error:', error);
+        alert("Hubo un error al enviar el formulario.");
+      });
     });
   </script>
 
