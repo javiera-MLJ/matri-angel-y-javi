@@ -74,6 +74,7 @@ a.button {
   border: none;
   border-radius: 5px;
   font-size: 1em;
+  font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -366,22 +367,6 @@ a.button:hover {
   color: #5a3b3f;
 }
 
-.map-button {
-  display: inline-block;
-  margin-top: 1em;
-  padding: 10px 20px;
-  background-color: #663366;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.map-button:hover {
-  background-color: #b592b5;
-}
-
 .location-image {
   flex: 1;
   min-width: 300px;
@@ -454,21 +439,6 @@ a.button:hover {
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 1em;
-}
-
-#song-form button {
-  background-color: #663366;
-  color: white;
-  border: none;
-  padding: 12px;
-  font-size: 1em;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#song-form button:hover {
-  background-color: #d7b2db;
 }
 
 /* === MENSAJE DE ÉXITO === */
@@ -691,6 +661,10 @@ select {
 
 /* === RESPONSIVE DESIGN === */
 @media (max-width: 600px) {
+  a.button{
+    width: 100%;
+    text-align: center;
+  }
   header h1 {
     font-size: 2.2em;
   }
