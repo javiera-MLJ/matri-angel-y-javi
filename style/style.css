@@ -406,14 +406,14 @@ a.button:hover {
 
 /* Estilo de la imagen */
 .regalo-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* === FORMULARIOS === */
-#song-form {
+form {
   max-width: 500px;
   margin: auto;
   display: flex;
@@ -425,15 +425,16 @@ a.button:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-#song-form label {
+form label {
   font-weight: bold;
+  font-size: larger;
   color: #4b2e2e;
   align-self: flex-start;
 }
 
-#song-form input,
-#song-form select,
-#song-form textarea {
+form input,
+form select,
+form textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -441,15 +442,71 @@ a.button:hover {
   font-size: 1em;
 }
 
-/* === MENSAJE DE ÉXITO === */
-.success-message {
-  display: none;
-  margin-top: 1em;
-  color: green;
-  font-weight: bold;
+.form-container {
+  max-width: 600px;
+  margin: 4em auto;
+  padding: 2em;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.4); /* Fondo blanco translúcido */
+  backdrop-filter: blur(5px); /* Efecto suave (opcional) */
+}
+.form-container h2 {
+  color: #663366;
+  margin-bottom: 1em;
 }
 
-/* === PLAYLIST === */
+label {
+  display: block;
+  margin-top: 1em;
+  font-weight: bold;
+  color: #813ea7;
+}
+input[type="text"], select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #813ea7;
+  border-radius: 6px;
+  font-family: 'Georgia', serif;
+  font-size: 1em;
+}
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+input[type="submit"] {
+  margin-top: 1.5em;
+  background-color: #813ea7;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+input[type="submit"]:hover {
+  background-color: #c4acca;
+}
+/* Estilo para el mensaje de éxito */
+.success-message {
+  display: none;
+  text-align: center;
+  color: #2c3e50;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 2em;
+  animation: fadeIn 0.5s ease-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .spotify-playlist {
   text-align: center;
   padding: 2em 1em;
@@ -667,6 +724,11 @@ select {
   }
   header h1 {
     font-size: 2.2em;
+  }
+
+  .form-container {
+  margin: 2em 1em;
+  padding: 1.5em;
   }
 
   nav {

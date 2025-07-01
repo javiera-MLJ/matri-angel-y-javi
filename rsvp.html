@@ -6,8 +6,7 @@
   <title>Confirmación de Asistencia</title>
   <link rel="stylesheet" href="style/style.css">
   <style>
-/* === FORMULARIO === */
-    /* === FONDO === */
+    
     body {
       margin: 0;
       font-family: 'Georgia', serif;
@@ -15,7 +14,6 @@
       background-size: cover;
       position: relative;
     }
-
     /* Overlay translúcido opcional (opcional pero bonito) */
     body::before {
       content: "";
@@ -25,127 +23,9 @@
       background-color: rgba(255, 255, 255, 0.3); /* Blanco semi-transparente */
       z-index: -1;
     }
-
-    .form-container {
-      max-width: 600px;
-      margin: 4em auto;
-      padding: 2em;
-      border-radius: 12px;
-      background-color: rgba(255, 255, 255, 0.4); /* Fondo blanco translúcido */
-      backdrop-filter: blur(5px); /* Efecto suave (opcional) */
-    }
-
-    .form-container h2 {
-      color: #663366;
-      margin-bottom: 1em;
-    }
-
-    #rsvp-form {
-      max-width: 500px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-      background-color: #fff0f5;
-      padding: 2em;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    #rsvp-form label {
-      font-weight: bold;
-      color: #4b2e2e;
-      align-self: flex-start;
-    }
-
-    #rsvp-form input,
-    #rsvp-form select,
-    #rsvp-form textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1em;
-    }
-
-    /* Mensaje de éxito */
-    .success-message {
-      display: none;
-      margin-top: 1em;
-      color: green;
-      font-weight: bold;
-    }
-
-    label {
-      display: block;
-      margin-top: 1em;
-      font-weight: bold;
-      color: #813ea7;
-    }
-
-    input[type="text"], select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #813ea7;
-      border-radius: 6px;
-      font-family: 'Georgia', serif;
-      font-size: 1em;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    input[type="submit"] {
-      margin-top: 1.5em;
-      background-color: #813ea7;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      font-size: 1em;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    input[type="submit"]:hover {
-      background-color: #c4acca;
-    }
-
-    /* Estilo para el mensaje de éxito */
-    .success-message {
-      display: none;
-      text-align: center;
-      color: #2c3e50;
-      font-size: 1.2em;
-      font-weight: bold;
-      margin-top: 2em;
-      animation: fadeIn 0.5s ease-out;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-
-
-    @media (max-width: 600px) {
-      .form-container {
-        margin: 2em 1em;
-        padding: 1.5em;
-      }
-
-    }
   </style>
 </head>
-<body>
+<body class="rsvp-body">
   <header>
     <h1>Javiera & Ángel</h1>
     <nav class="navbar">
@@ -211,21 +91,34 @@
     // Mostrar mensaje de éxito al enviar
     const form = document.getElementById('rsvp-form');
     const successMessage = document.getElementById('success-message');
-
+  
     form.addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      successMessage.style.display = 'block';
-      successMessage.textContent = '¡Gracias por confirmar tu asistencia!';
-      
-      form.reset();
-
-      setTimeout(() => {
-        successMessage.style.display = 'none';
-      }, 5000);
-
-      // Enviar formulario después de mostrar el mensaje (si usas Formspree)
-      form.submit();
+      event.preventDefault(); // Detenemos el envío normal
+    
+      const formData = new FormData(form);
+    
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          // Muestra el mensaje de éxito
+          successMessage.style.display = 'block';
+          form.reset();
+        
+          setTimeout(() => {
+            successMessage.style.display = 'none';
+          }, 5000);
+        } else {
+          alert("Hubo un error al enviar el formulario. Inténtalo de nuevo.");
+        }
+      }).catch(error => {
+        console.error('Error:', error);
+        alert("Hubo un error al enviar el formulario.");
+      });
     });
   </script>
 
