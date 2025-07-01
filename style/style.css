@@ -457,7 +457,7 @@ a.button:hover {
 }
 
 #song-form button {
-  background-color: #e84393;
+  background-color: #663366;
   color: white;
   border: none;
   padding: 12px;
@@ -468,7 +468,7 @@ a.button:hover {
 }
 
 #song-form button:hover {
-  background-color: #d63031;
+  background-color: #d7b2db;
 }
 
 /* === MENSAJE DE ÉXITO === */
