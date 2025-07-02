@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Sitio web oficial de la boda de Javiera & Ángel. Conoce la fecha, lugar, cómo asistir y más.">
+    <meta property="og:title" content="Matrimonio Javiera & Ángel">
+    <meta property="og:description" content="Celebra con nosotros nuestro gran día. Fecha, ubicación, RSVP y más.">
+    <meta property="og:image" content="images/portada-boda.jpg"> <!-- Imagen destacada -->
+    <meta property="og:url" content="https://JavierayAngel.cl/ ">
+    <meta name="theme-color" content="#ffffff">
     <title>Ceremonia - Javiera & Ángel</title>
     <link rel="stylesheet" href="style/style.css">
+    <script src="js/animation.js" defer></script>
 </head>
 <body>
 
@@ -16,6 +23,7 @@
             <a href="recepcion.html">Recepción</a>
             <a href="rsvp.html">Confirmar asistencia</a>
             <a href="playlist.html">Canciones</a>
+            <a href="estadia.html">Estadia</a>
         </nav>
     </header>
 
@@ -38,12 +46,12 @@
         </section>
 
         <!-- Imagen del templo -->
-        <section class="uniform-section fade-in" style="background-color: #fffdfb;">
+        <section class="uniform-section fade-in">
             <div class="ceremony-image">
                 <div class="templo-text">
                     <p>Después de la ceremonia en el templo:</p>
                     <p>El gran matrimonio tendrá una sesión de fotos. Agradeceremos a todos su presencia para las primeras fotos en grupo. Posteriormente, podrán dirigirse caminando hacia la recepción, ubicada a unas cuadras del templo (dirección disponible en la página principal).</p>
-                    <p><strong>Es importante que todos estén presentes en la iglesia a las 12:30 horas para recibir a los novios a las 13:00 horas.</strong></p>
+                    <p class="importante">Es importante que todos estén presentes en la iglesia a las 12:30 horas para recibir a los novios a las 13:00 horas.</p>
                 </div>
                 <div class="templo-image">
                     <img src="images/templo-conce.JPG" alt="Templo donde será la ceremonia">
@@ -69,7 +77,7 @@
                     <span class="option-number">2</span>
                     <div class="option-text">
                         <h3>Ayúdanos a preparar todo</h3>
-                        <p>Si quieres ser parte activa de nuestro día, puedes viajar el viernes y ayudarnos a decorar o preparar detalles. Tu ayuda será invaluable, y por eso te ofrecemos hospedaje gratuito en el hostal esa noche (previa coordinación conmigo). Recuerda confirmar conmigo antes del prox martes 1 de julio para poder reservar en el hostal.</p>
+                        <p>Si quieres ser parte activa de nuestro día, puedes viajar el viernes y ayudarnos a decorar o preparar detalles. Tu ayuda será invaluable, y por eso te ofrecemos hospedaje gratuito en el hostal esa noche (previa coordinación con la novia). Recuerda confirmar antes del proximo viernes 6 de julio para poder reservar en el hostal.</p>
                         <p><em>Se puede dejar una propina simbólica al hostal si lo deseas.</em></p>
                     </div>
                 </div>
@@ -97,25 +105,5 @@
         <p>Consultas al boton del whatsapp</p>
         <p>Javiera & Ángel</p>
     </section>
-
-    <script>
-        const faders = document.querySelectorAll(".fade-in");
-
-        const appearOnScroll = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-            }
-            });
-        }, {
-            threshold: 0.2
-        });
-
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
-        });
-    </script>
-
 </body>
 </html>

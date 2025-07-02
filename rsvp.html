@@ -3,27 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Sitio web oficial de la boda de Javiera & Ángel. Conoce la fecha, lugar, cómo asistir y más.">
+  <meta property="og:title" content="Matrimonio Javiera & Ángel">
+  <meta property="og:description" content="Celebra con nosotros nuestro gran día. Fecha, ubicación, RSVP y más.">
+  <meta property="og:image" content="images/portada-boda.jpg"> <!-- Imagen destacada -->
+  <meta property="og:url" content="https://JavierayAngel.cl/">
+  <meta name="theme-color" content="#ffffff">
   <title>Confirmación de Asistencia</title>
   <link rel="stylesheet" href="style/style.css">
-  <style>
-    
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background: url('images/formulario.JPG') no-repeat center center fixed;
-      background-size: cover;
-      position: relative;
-    }
-    /* Overlay translúcido opcional (opcional pero bonito) */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(255, 255, 255, 0.3); /* Blanco semi-transparente */
-      z-index: -1;
-    }
-  </style>
+  <script src="js/animation.js" defer></script>
+
 </head>
 <body class="rsvp-body">
   <header>
@@ -34,6 +23,7 @@
       <a href="recepcion.html">Recepción</a>
       <a href="rsvp.html">Confirmar asistencia</a>
       <a href="playlist.html">Canciones</a>
+      <a href="estadia.html">Estadia</a>
     </nav>
   </header>
 
@@ -42,7 +32,7 @@
     <p>Por favor, confirma tu presencia antes del 10 de septiembre.</p>
     <form id="rsvp-form" action="https://formspree.io/f/mjkrpkpy"  method="POST">
       <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required aria-required="true">
     
       <label for="asistencia">¿Asistirás?</label>
       <select id="asistencia" name="asistencia">
@@ -56,10 +46,9 @@
       <button type="submit">Enviar Confirmación</button>
     </form>
 
-    <!-- Mensaje de éxito -->
-    <div id="success-message" class="success-message">
-      ¡Gracias por confirmar tu asistencia!
-    </div>
+    <!-- Mensajes de éxito y error -->
+    <div id="success-message" class="success-message">¡Gracias por confirmar tu asistencia!</div>
+    <div id="error-message" class="error-message">Hubo un problema al enviar el formulario. Inténtalo más tarde.</div>
   </div>
 
     <!-- Mensaje Final -->
@@ -68,59 +57,5 @@
       <p>Consultas al boton del whatsapp</p>
       <p>Javiera & Ángel</p>
   </section>
-  
-  <!-- Script para animaciones -->
-  <script>
-    const faders = document.querySelectorAll(".fade-in");
-
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.2
-    });
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
-
-    // Mostrar mensaje de éxito al enviar
-    const form = document.getElementById('rsvp-form');
-    const successMessage = document.getElementById('success-message');
-  
-    form.addEventListener('submit', function(event) {
-      event.preventDefault(); // Detenemos el envío normal
-    
-      const formData = new FormData(form);
-    
-      fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          // Muestra el mensaje de éxito
-          successMessage.style.display = 'block';
-          form.reset();
-        
-          setTimeout(() => {
-            successMessage.style.display = 'none';
-          }, 5000);
-        } else {
-          alert("Hubo un error al enviar el formulario. Inténtalo de nuevo.");
-        }
-      }).catch(error => {
-        console.error('Error:', error);
-        alert("Hubo un error al enviar el formulario.");
-      });
-    });
-  </script>
-
 </body>
 </html>

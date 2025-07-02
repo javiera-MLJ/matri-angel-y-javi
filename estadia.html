@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Sitio web oficial de la boda de Javiera & Ángel. Conoce la fecha, lugar, cómo asistir y más.">
+    <meta property="og:title" content="Matrimonio Javiera & Ángel">
+    <meta property="og:description" content="Celebra con nosotros nuestro gran día. Fecha, ubicación, RSVP y más.">
+    <meta property="og:image" content="images/portada-boda.jpg"> <!-- Imagen destacada -->
+    <meta property="og:url" content="https://JavierayAngel.cl/">
+    <meta name="theme-color" content="#ffffff">
+    <title>Confirmación de Asistencia</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="js/animation.js" defer></script>
+</head>
+<body class="estadia-body">
+    <header>
+        <h1>Javiera & Ángel</h1>
+        <nav class="navbar">
+            <a href="index.html">Inicio</a>
+            <a href="ceremonia.html">Ceremonia</a>
+            <a href="recepcion.html">Recepción</a>
+            <a href="rsvp.html">Confirmar asistencia</a>
+            <a href="playlist.html">Canciones</a>
+            <a href="estadia.html">Estadia</a>
+        </nav>
+    </header>
+
+    <div class="form-container">
+        <h2>Confirmación de Estadia</h2>
+        <p>Por favor, confirma tu Estadia antes del 6 de julio.</p>
+        <form id="estadia-form" action="https://formspree.io/f/xblybdvy" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required aria-required="true">
+
+            <label for="asistencia">¿Te quedarás en el hostal el viernes?</label>
+            <select id="asistencia" name="asistencia">
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+        
+            <label for="comentarios">Comentarios:</label>
+            <textarea id="comentarios" name="comentarios" placeholder="Escribe aquí tus comentarios..."></textarea>
+        
+            <button type="submit">Enviar Confirmación</button>
+        </form>
+
+        <!-- Mensaje de éxito -->
+        <div id="success-message" class="success-message">
+            ¡Gracias por confirmar tu Estadia!
+        </div>
+    </div>
+
+        <!-- Mensaje Final -->
+    <section class="final-message">
+            <h2>Esperamos verte allí</h2>
+            <p>Consultas al boton del whatsapp</p>
+            <p>Javiera & Ángel</p>
+    </section>
+</body>
+</html>

@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sitio web oficial de la boda de Javiera & Ángel. Conoce la fecha, lugar, cómo asistir y más.">
+  <meta property="og:title" content="Matrimonio Javiera & Ángel">
+  <meta property="og:description" content="Celebra con nosotros nuestro gran día. Fecha, ubicación, RSVP y más.">
+  <meta property="og:image" content="images/portada-boda.jpg"> <!-- Imagen destacada -->
+  <meta property="og:url" content="https://JavierayAngel.cl/ ">
+  <meta name="theme-color" content="#ffffff">
   <title>Matrimonio Javiera & Ángel</title>
   <link rel="stylesheet" href="style/style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Hero Section -->
@@ -32,6 +35,7 @@
     <a href="recepcion.html">Recepción</a>
     <a href="rsvp.html">Confirmar asistencia</a>
     <a href="playlist.html">Canciones</a>
+    <a href="estadia.html">Estadia</a>
 
   </nav>
   <!-- Cuenta Regresiva -->
@@ -51,7 +55,7 @@
     <div class="history-wrapper">
       <!-- Imagen a la izquierda -->
       <div class="history-image">
-        <img src="images/nuestra-historia.JPG" alt="Nuestra Historia">
+        <img src="images/nuestra-historia.JPG" alt="Nuestra Historia" loading="lazy">
       </div>
 
       <div class="history-text">
@@ -95,7 +99,7 @@
     <p>Queremos que te sientas cómodo y elegante en nuestra celebración.</p>
     <p><strong>Tema:</strong> Vestimenta formal – Elegante</p>
     <p><strong>Paleta de colores sugerida:</strong> Tonos pasteles o neutros. Por favor, evita el morado o lila, ya que estos tonos están reservados específicamente para las damas y caballeros de honor.</p>
-    <p>¡Por favor, evita el vestido blanco; esta noche es solo para mí 😊!</p>
+    <p>¡Por favor, evita el vestido blanco; esta noche es solo para la novia 😊!</p>
   </section>
 
   <!-- Imagen Parallax -->
@@ -129,9 +133,9 @@
 
     <section id="rsvp" class="uniform-section fade-in">
       <h2>Confirma tu Asistencia</h2>
-      <p>No olvides confirmar tu asistencia antes del 10 de septiembre y hablarme esta semana para confirmar tu estadia.</p>
-      <p><strong>Detalles en la seccion de ceremonia y Recepción.</strong></p>
-      <a class="button" href="rsvp.html">Reserva Ahora</a>
+      <p>No olvides confirmar tu asistencia antes del 10 de septiembre y hablarnos esta semana para confirmar tu estadia.</p>
+      <p><strong>Detalles en la sección de ceremonia y Recepción.</strong></p>
+      <a class="button" href="rsvp.html">Confirmar Asistencia</a>
     </section>
 
     <!-- Mensaje Final -->
@@ -147,52 +151,46 @@
       <img src="images/whatsapp-icon.png" alt="WhatsApp">
   </a>
   <script>
-    const weddingDate = new Date("October 11, 2025 14:00:00").getTime();
+  // === Cuenta regresiva ===
+  const weddingDate = new Date("October 11, 2025 14:00:00").getTime();
+  const daysSpan = document.getElementById("days");
+  const hoursSpan = document.getElementById("hours");
+  const minutesSpan = document.getElementById("minutes");
+  const secondsSpan = document.getElementById("seconds");
 
-    const countdown = document.getElementById("countdown");
-    const daysSpan = document.getElementById("days");
-    const hoursSpan = document.getElementById("hours");
-    const minutesSpan = document.getElementById("minutes");
-    const secondsSpan = document.getElementById("seconds");
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    daysSpan.textContent = days.toString().padStart(2, "0");
+    hoursSpan.textContent = hours.toString().padStart(2, "0");
+    minutesSpan.textContent = minutes.toString().padStart(2, "0");
+    secondsSpan.textContent = seconds.toString().padStart(2, "0");
+  }
 
-      daysSpan.textContent = days.toString().padStart(2, "0");
-      hoursSpan.textContent = hours.toString().padStart(2, "0");
-      minutesSpan.textContent = minutes.toString().padStart(2, "0");
-      secondsSpan.textContent = seconds.toString().padStart(2, "0");
-    }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  </script>
+  // === Animaciones al hacer scroll ===
+  const faders = document.querySelectorAll(".fade-in");
 
-
-
-  <script>
-    const faders = document.querySelectorAll(".fade-in");
-
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.2
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.2 });
 
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
   </script>
 </body>
 </html>

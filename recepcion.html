@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Sitio web oficial de la boda de Javiera & Ángel. Conoce la fecha, lugar, cómo asistir y más.">
+    <meta property="og:title" content="Matrimonio Javiera & Ángel">
+    <meta property="og:description" content="Celebra con nosotros nuestro gran día. Fecha, ubicación, RSVP y más.">
+    <meta property="og:image" content="images/portada-boda.jpg"> <!-- Imagen destacada -->
+    <meta property="og:url" content="https://JavierayAngel.cl/">
+    <meta name="theme-color" content="#ffffff">
     <title>Recepción - Javiera & Ángel</title>
     <link rel="stylesheet" href="style/style.css">
+    <script src="js/animation.js" defer></script>
 </head>
 <body>
 
@@ -16,21 +23,22 @@
             <a href="recepcion.html">Recepción</a>
             <a href="rsvp.html">Confirmar asistencia</a>
             <a href="playlist.html">Canciones</a>
+            <a href="estadia.html">Estadia</a>
         </nav>
     </header>
 
     <main>
         <!-- Sección intro -->
         <!-- Mensaje sobre acceso al templo -->
-        <section class="uniform-section fade-in" style="background-color: #fffdfb;">
+        <section class="uniform-section fade-in">
             <h2>Agradecemos profundamente tu interés por ser parte de nuestro día!!</h2>
             <p>La ceremonia tendrá lugar en el templo, un espacio sagrado que tiene ciertas restricciones de acceso según las normas de la Iglesia.</p>
             <p>Aunque no puedas acompañarnos en la ceremonia, nos encantará tenerte en la recepción, donde celebraremos juntos nuestro amor con música, comida y mucha alegría.</p>
-            <p><strong>¡Tu presencia siempre será recibida con mucho cariño!</strong></p>
+            <p class="importante">Tu presencia siempre será recibida con mucho cariño!</p>
         </section>
 
         <!-- Horario de llegada -->
-        <section class="uniform-section fade-in" style="background-color: #fffdfb;">
+        <section class="uniform-section fade-in">
             <h2>Horario de Recepción</h2>
             <p>La recepción comenzará a las <strong>12:30 hrs.</strong></p>
             <p>Todos tienen que estar a las <strong>13:00 hrs</strong> para que estes en la entrada triunfal de los novios.</p>
@@ -55,7 +63,7 @@
                     <span class="option-number">2</span>
                     <div class="option-text">
                         <h3>Ayúdanos a preparar todo</h3>
-                        <p>Si quieres ser parte activa de nuestro día, puedes viajar el viernes y ayudarnos a decorar o preparar detalles. Tu ayuda será invaluable, y por eso te ofrecemos hospedaje gratuito en el hostal esa noche (previa coordinación conmigo). Recuerda confirmar conmigo antes del prox martes 1 de julio para poder reservar en el hostal.</p>
+                        <p>Si quieres ser parte activa de nuestro día, puedes viajar el viernes y ayudarnos a decorar o preparar detalles. Tu ayuda será invaluable, y por eso te ofrecemos hospedaje gratuito en el hostal esa noche (previa coordinación conmigo). Recuerda confirmar conmigo antes del proximo viernes 4 de julio para poder reservar en el hostal.</p>
                         <p><em>Se puede dejar una propina simbólica al hostal si lo deseas.</em></p>
                     </div>
                 </div>
@@ -73,7 +81,7 @@
         </section>
 
         <!-- Detalles de estadía + Imagen -->
-        <section class="uniform-section fade-in" style="background-color: #fffdfb;">
+        <section class="uniform-section fade-in">
             <h2>Detalles de la Estadía</h2>
             <p>El hostal donde ofrecemos hospedaje está ubicado cerca del lugar de la recepción. Cuenta con habitaciones sencillas pero acogedoras, divididas por género (hombres y mujeres).</p>
             <p>Cada dormitorio tiene alrededor de 6 camas tipo camarote de 1 plaza y media, ideales para compartir con otros invitados.</p>
@@ -81,7 +89,7 @@
             <a href="https://maps.app.goo.gl/FC3xumkMAc9tQr3g8" target="_blank" class="button">Ver Mapa</a>
             
             <div class="stay-details">
-                <img src="images/hostal.jpg" alt="Hostal para los invitados">
+                <img src="images/hostal.jpg" alt="Hostal para los invitados" loading="lazy">
                 <p class="texto-bajo-imagen"><em>Imagen referencial</em></p>
             </div>
         </section>
@@ -98,26 +106,6 @@
         <p>Consultas al boton del whatsapp</p>
         <p>Javiera & Ángel</p>
     </section>
-
-    <!-- === SCRIPT DE ANIMACIONES === -->
-    <script>
-        const faders = document.querySelectorAll(".fade-in");
-
-        const appearOnScroll = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.2
-        });
-
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
-        });
-    </script>
 
 </body>
 </html>

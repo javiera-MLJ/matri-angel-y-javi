@@ -3,8 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sitio web oficial de la boda de Javiera & Ángel. Conoce la fecha, lugar, cómo asistir y más.">
+  <meta property="og:title" content="Matrimonio Javiera & Ángel">
+  <meta property="og:description" content="Celebra con nosotros nuestro gran día. Fecha, ubicación, RSVP y más.">
+  <meta property="og:image" content="images/portada-boda.jpg"> <!-- Imagen destacada -->
+  <meta property="og:url" content="https://JavierayAngel.cl/">
+  <meta name="theme-color" content="#ffffff">
   <title>Playlist - Javiera & Ángel</title>
   <link rel="stylesheet" href="style/style.css">
+  <script src="js/animation.js" defer></script>
 </head>
 <body>
 
@@ -31,13 +38,13 @@
     
       <form id="song-form" action="https://formspree.io/f/mwpbwvqz"  method="POST">
         <label for="nombre">Tu nombre:</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Ej: María González" required>
+        <input type="text" id="nombre" name="nombre" placeholder="Ej: María González" required aria-required="true">
       
         <label for="cancion">Nombre de la canción:</label>
-        <input type="text" id="cancion" name="cancion" placeholder="Ej: Perfect" required>
+        <input type="text" id="cancion" name="cancion" placeholder="Ej: Perfect" required aria-required="true">
       
         <label for="artista">Artista:</label>
-        <input type="text" id="artista" name="artista" placeholder="Ej: Ed Sheeran" required>
+        <input type="text" id="artista" name="artista" placeholder="Ej: Ed Sheeran" required aria-required="true">
       
         <!-- Campo oculto para evitar errores en Formspree -->
         <input type="hidden" name="_subject" value="Nueva sugerencia de canción">
@@ -54,7 +61,7 @@
 
     <section class="uniform-section fade-in">
       <div class="spotify-playlist">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/17yr3fDnQ3IdvGcEzcSOYq?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/61fThODI6J9LkxWqvJDyJK?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </section>
   </main>
@@ -65,57 +72,5 @@
       <p>Consultas al boton del whatsapp</p>
       <p>Javiera & Ángel</p>
   </section>
-  <script>
-    const faders = document.querySelectorAll(".fade-in");
-  
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.2
-    });
-  
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
-  
-    // Mostrar mensaje de éxito al enviar
-    const form = document.getElementById('song-form');
-    const successMessage = document.getElementById('success-message');
-  
-    form.addEventListener('submit', function(event) {
-      event.preventDefault(); // Detenemos el envío normal
-    
-      const formData = new FormData(form);
-    
-      fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          // Muestra el mensaje de éxito
-          successMessage.style.display = 'block';
-          form.reset();
-        
-          setTimeout(() => {
-            successMessage.style.display = 'none';
-          }, 5000);
-        } else {
-          alert("Hubo un error al enviar el formulario. Inténtalo de nuevo.");
-        }
-      }).catch(error => {
-        console.error('Error:', error);
-        alert("Hubo un error al enviar el formulario.");
-      });
-    });
-  </script>
-
 </body>
 </html>
