@@ -319,10 +319,6 @@ a.button:hover {
   min-width: 250px;
 }
 
-.location-info p {
-  margin: 0.5em 0;
-  color: #5a3b3f;
-}
 
 .location-image {
   flex: 1;
@@ -556,7 +552,7 @@ select {
 /* === IMAGEN PARALLAX === */
 .parallax-image {
   height: 300px; /* Ajusta la altura según quieras */
-  background-image: url('../images/baile.webp'); /* Cambia por tu imagen real */
+  background-image: url('../images/baile.webp');
   background-attachment: fixed; /* Este es el efecto parallax */
   background-size: cover;
   background-position: center;

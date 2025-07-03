@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-
     // === ANIMACIONES FADE-IN ===
     const faders = document.querySelectorAll(".fade-in");
 
@@ -7,25 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.2 });
-
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-    });
-
-    // main.js
-
-document.addEventListener("DOMContentLoaded", function () {
-    // === ANIMACIONES FADE-IN ===
-    const faders = document.querySelectorAll(".fade-in");
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
+                observer.unobserve(entry.target); // Dejar de observar después de la animación
             }
         });
     }, { threshold: 0.2 });
@@ -36,17 +17,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // === FORMULARIO DE CANCIONES ===
-    const form = document.getElementById('song-form');
-    const successMessage = document.getElementById('success-message');
+    const songForm = document.getElementById('song-form');
+    const songSuccessMessage = document.getElementById('song-success-message');
 
-    if (form) {
-        form.addEventListener('submit', function(event) {
+    if (songForm) {
+        songForm.addEventListener('submit', function(event) {
             event.preventDefault();
 
-            const formData = new FormData(form);
+            const formData = new FormData(songForm);
 
-            fetch(form.action, {
-                method: form.method,
+            fetch(songForm.action, {
+                method: songForm.method,
                 body: formData,
                 headers: {
                     'Accept': 'application/json'
@@ -54,40 +35,41 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .then(response => {
                 if (response.ok) {
-                    successMessage.style.display = 'block';
-                    form.reset();
-                    setTimeout(() => successMessage.style.display = 'none', 5000);
+                    songSuccessMessage.style.display = 'block';
+                    songForm.reset();
+                    setTimeout(() => songSuccessMessage.style.display = 'none', 5000);
                 } else {
-                    alert("Hubo un error al enviar el formulario. Inténtalo de nuevo.");
+                    alert("Hubo un error al enviar el formulario de canciones. Inténtalo de nuevo.");
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert("Hubo un error al enviar el formulario.");
+                alert("Hubo un error al enviar el formulario de canciones.");
             });
         });
     }
-});
 
 
     // === FORMULARIO RSVP ===
-    const form = document.getElementById('rsvp-form');
-    const successMessage = document.getElementById('success-message');
-    const errorMessage = document.getElementById('error-message');
-    const submitButton = form.querySelector('button[type="submit"]');
+    const rsvpForm = document.getElementById('rsvp-form');
+    const rsvpSuccessMessage = document.getElementById('rsvp-success-message');
+    const rsvpErrorMessage = document.getElementById('rsvp-error-message');
+    const rsvpSubmitButton = rsvpForm ? rsvpForm.querySelector('button[type="submit"]') : null;
 
-    if (form) {
-        form.addEventListener('submit', function(event) {
+    if (rsvpForm) {
+        rsvpForm.addEventListener('submit', function(event) {
             event.preventDefault();
 
             // Mostrar estado de carga
-            submitButton.textContent = "Enviando...";
-            submitButton.disabled = true;
+            if (rsvpSubmitButton) {
+                rsvpSubmitButton.textContent = "Enviando...";
+                rsvpSubmitButton.disabled = true;
+            }
 
-            const formData = new FormData(form);
+            const formData = new FormData(rsvpForm);
 
-            fetch(form.action, {
-                method: form.method,
+            fetch(rsvpForm.action, {
+                method: rsvpForm.method,
                 body: formData,
                 headers: {
                     'Accept': 'application/json'
@@ -95,24 +77,25 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .then(response => {
                 if (response.ok) {
-                    successMessage.style.display = 'block';
-                    errorMessage.style.display = 'none';
-                    form.reset();
-                    setTimeout(() => successMessage.style.display = 'none', 5000);
+                    rsvpSuccessMessage.style.display = 'block';
+                    rsvpErrorMessage.style.display = 'none';
+                    rsvpForm.reset();
+                    setTimeout(() => rsvpSuccessMessage.style.display = 'none', 5000);
                 } else {
                     throw new Error('Error en respuesta');
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                errorMessage.style.display = 'block';
-                successMessage.style.display = 'none';
+                rsvpErrorMessage.style.display = 'block';
+                rsvpSuccessMessage.style.display = 'none';
             })
             .finally(() => {
-                submitButton.textContent = "Enviar Confirmación";
-                submitButton.disabled = false;
+                if (rsvpSubmitButton) {
+                    rsvpSubmitButton.textContent = "Enviar Confirmación";
+                    rsvpSubmitButton.disabled = false;
+                }
             });
         });
     }
-
 });
